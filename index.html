@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parth Santosh Sawant - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background-color: #0A192F;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: #0A192F;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #64FFDA;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FF6F61;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+        }
+
+        .btn {
+            background-color: #64FFDA;
+            color: #0A192F;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #FF6F61;
+        }
+
+        section {
+            padding: 40px 20px;
+            margin: 20px;
+            border: 1px solid #64FFDA;
+            border-radius: 10px;
+            animation: slideIn 0.5s ease-in;
+        }
+
+        h2 {
+            color: #64FFDA;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #0A192F;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" onclick="loadSection('about')">About</a>
+            <a href="#" onclick="loadSection('education')">Education</a>
+            <a href="#" onclick="loadSection('projects')">Projects</a>
+            <a href="#" onclick="loadSection('skills')">Skills</a>
+            <a href="#" onclick="loadSection('contact')">Contact</a>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <h1> Parth Santosh Sawant</h1>
+        <p>Diploma in Computer Engineering Student</p>
+        <a href="#" onclick="loadSection('contact')" class="btn">Contact Me</a>
+    </div>
+
+    <div id="content">
+        <!-- Dynamic content will be loaded here -->
+    </div>
+
+    
+
+    <script>
+        function loadSection(section) {
+            const contentDiv = document.getElementById('content');
+            let content = '';
+
+            switch (section) {
+                case 'about':
+                    content = `
+                        <section id="about">
+                            <h2>About Me</h2>
+                            <p>I'm a passionate computer engineering student with a strong foundation in programming and web development</p><p> 🎓 Education
+Diploma in Computer Engineering
+Viva Institute of Technology,Virar</p>
+<p>📆 2023 – 2026 (Pursuing – 3rd Year)</p>
+<p>📊 Percentage: Above 75%.</p>
+                        </section>
+                    `;
+                    break;
+                case 'education':
+                    content = `
+                        <section id="education">
+                            <h2>Education</h2>
+                            <p><strong>Diploma in Computer Engineering</strong><br>
+                            Viva Institute of Technology, Virar<br>
+                            Duration: 2023 – 2026 (Currently in 3rd Year)<br>
+                            Percentage: Above 75%</p>
+                        </section>
+                    `;
+                    break;
+                case 'projects':
+                    content = `
+                        <section id="projects">
+                            <h2>Projects</h2>
+                            <ul>
+                                <li>
+                                    <strong>countdown timer website</strong> - Web app using HTML, CSS, JavaScript
+                                    <a href="https://parth052007.github.io/countdowntimer/" class="github-btn">View on GitHub</a>
+                                </li>
+                                <li>
+                                    <strong>coaching center website</strong> - using html , css, javascript
+                                    <a href="https://parth052007.github.io/coaching/" class="github-btn">View on GitHub</a>
+                                </li>
+                                <li>
+                                    <strong>wheather forecast website </strong> - using html , css , javascript + wheather api
+                                    <a href="https://parth052007.github.io/wheather/" class="github-btn">View on GitHub</a>
+                                </li>
+                            </ul>
+                        </section>
+                    `;
+                    break;
+                case 'skills':
+                    content = `
+                        <section id="skills">
+                            <h2>Skills</h2>
+                        
+                            <p><strong>Web:</strong> HTML, CSS, javaScript</p>
+                            <p><strong>Tools:</strong> Git , VS Code, Figma</p>
+                            <p><strong>Soft Skills:</strong> Problem Solving, Teamwork, Communication</p>
+                        </section>
+                    `;
+                    break;
+                case 'contact':
+                    content = `
+                        <section id="contact">
+                            <h2>Contact</h2>
+                            <p>Email: <a href="mailto:parth050507@gmail.com" style="color: #64FFDA;">parth050507@gmail.com</a></p>
+                            <p>Phone: <a href="tel:8177904398" style="color: #64FFDA;">8177904398</a></p>
+                        </section>
+                    `;
+                    break;
+                default:
+                    content = '<section><h2>Welcome</h2><p>Select a section from the navigation.</p></section>';
+            }
+
+            contentDiv.innerHTML = content;
+        }
+
+        // Load the default section
+        loadSection('about');
+    </script>
+</body>
+</html>
